@@ -1,0 +1,179 @@
+{
+  "groups": [
+    {
+      "name": "com.smartone.login.token",
+      "type": "com.ibs.login.util.Token",
+      "sourceType": "com.ibs.login.util.Token"
+    },
+    {
+      "name": "ibs.parent.cors",
+      "type": "com.ibs.components.filters.cors.CorsConfigurationProperties",
+      "sourceType": "com.ibs.components.filters.cors.CorsConfigurationProperties"
+    },
+    {
+      "name": "ibs.parent.dynamic.table",
+      "type": "com.ibs.components.filters.dynamic.table.DynamicTableConfigurationProperties",
+      "sourceType": "com.ibs.components.filters.dynamic.table.DynamicTableConfigurationProperties"
+    },
+    {
+      "name": "ibs.parent.filter",
+      "type": "com.ibs.components.filters.FilterConfigurationProperties",
+      "sourceType": "com.ibs.components.filters.FilterConfigurationProperties"
+    },
+    {
+      "name": "ibs.parent.filter.log",
+      "type": "com.ibs.components.filters.log.core.LogConfigurationProperties",
+      "sourceType": "com.ibs.components.filters.log.core.LogConfigurationProperties"
+    },
+    {
+      "name": "ibs.parent.thread.pool",
+      "type": "com.ibs.spring.threadpool.ThreadPoolProperties",
+      "sourceType": "com.ibs.spring.threadpool.ThreadPoolProperties"
+    },
+    {
+      "name": "ibs.parent.token",
+      "type": "com.ibs.components.filters.token.TokenConfigurationProperties",
+      "sourceType": "com.ibs.components.filters.token.TokenConfigurationProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "com.smartone.login.token.failure-duration",
+      "type": "java.lang.Long",
+      "sourceType": "com.ibs.login.util.Token"
+    },
+    {
+      "name": "com.smartone.login.token.lock-duration",
+      "type": "java.lang.Long",
+      "sourceType": "com.ibs.login.util.Token"
+    },
+    {
+      "name": "com.smartone.login.token.maximum-number-request",
+      "type": "java.lang.Long",
+      "sourceType": "com.ibs.login.util.Token"
+    },
+    {
+      "name": "com.smartone.login.token.not-filter-urls",
+      "type": "java.lang.String",
+      "sourceType": "com.ibs.login.util.Token"
+    },
+    {
+      "name": "ibs.parent.cors.access-control-allow-credentials",
+      "type": "java.lang.Boolean",
+      "sourceType": "com.ibs.components.filters.cors.CorsConfigurationProperties"
+    },
+    {
+      "name": "ibs.parent.cors.access-control-allow-headers",
+      "type": "java.lang.String",
+      "sourceType": "com.ibs.components.filters.cors.CorsConfigurationProperties"
+    },
+    {
+      "name": "ibs.parent.cors.access-control-allow-methods",
+      "type": "java.lang.String",
+      "sourceType": "com.ibs.components.filters.cors.CorsConfigurationProperties"
+    },
+    {
+      "name": "ibs.parent.cors.access-control-allow-origin",
+      "type": "java.lang.String",
+      "sourceType": "com.ibs.components.filters.cors.CorsConfigurationProperties"
+    },
+    {
+      "name": "ibs.parent.cors.access-control-max-age",
+      "type": "java.lang.String",
+      "sourceType": "com.ibs.components.filters.cors.CorsConfigurationProperties"
+    },
+    {
+      "name": "ibs.parent.dynamic.table.count-ceiling",
+      "type": "java.lang.Short",
+      "sourceType": "com.ibs.components.filters.dynamic.table.DynamicTableConfigurationProperties"
+    },
+    {
+      "name": "ibs.parent.dynamic.table.warn-count-ceiling",
+      "type": "java.lang.Short",
+      "sourceType": "com.ibs.components.filters.dynamic.table.DynamicTableConfigurationProperties"
+    },
+    {
+      "name": "ibs.parent.filter.enable-cors-filter",
+      "type": "java.lang.Boolean",
+      "description": "是否启用cors过滤器 默认为true",
+      "sourceType": "com.ibs.components.filters.FilterConfigurationProperties"
+    },
+    {
+      "name": "ibs.parent.filter.enable-dynamic-table-filter",
+      "type": "java.lang.Boolean",
+      "description": "是否启用动态表过滤器 默认为false",
+      "sourceType": "com.ibs.components.filters.FilterConfigurationProperties"
+    },
+    {
+      "name": "ibs.parent.filter.enable-log-filter",
+      "type": "java.lang.Boolean",
+      "description": "是否启用log过滤器 默认为true",
+      "sourceType": "com.ibs.components.filters.FilterConfigurationProperties"
+    },
+    {
+      "name": "ibs.parent.filter.enable-param-parser-filter",
+      "type": "java.lang.Boolean",
+      "description": "是否启用 参数解析过滤器 默认为false",
+      "sourceType": "com.ibs.components.filters.FilterConfigurationProperties"
+    },
+    {
+      "name": "ibs.parent.filter.enable-request-header-filter",
+      "type": "java.lang.Boolean",
+      "description": "是否启用请求头参数处理过滤器 默认为true",
+      "sourceType": "com.ibs.components.filters.FilterConfigurationProperties"
+    },
+    {
+      "name": "ibs.parent.filter.enable-token-validate-filter",
+      "type": "java.lang.Boolean",
+      "description": "是否启用token validate过滤器 默认为true",
+      "sourceType": "com.ibs.components.filters.FilterConfigurationProperties"
+    },
+    {
+      "name": "ibs.parent.filter.log.log-url-patterns",
+      "type": "java.lang.String[]",
+      "description": "日志过滤器要过滤的url模式",
+      "sourceType": "com.ibs.components.filters.log.core.LogConfigurationProperties"
+    },
+    {
+      "name": "ibs.parent.thread.pool.await-termination-seconds",
+      "type": "java.lang.Integer",
+      "sourceType": "com.ibs.spring.threadpool.ThreadPoolProperties"
+    },
+    {
+      "name": "ibs.parent.thread.pool.core-pool-size",
+      "type": "java.lang.Integer",
+      "sourceType": "com.ibs.spring.threadpool.ThreadPoolProperties"
+    },
+    {
+      "name": "ibs.parent.thread.pool.keep-alive-seconds",
+      "type": "java.lang.Integer",
+      "sourceType": "com.ibs.spring.threadpool.ThreadPoolProperties"
+    },
+    {
+      "name": "ibs.parent.thread.pool.max-pool-size",
+      "type": "java.lang.Integer",
+      "sourceType": "com.ibs.spring.threadpool.ThreadPoolProperties"
+    },
+    {
+      "name": "ibs.parent.thread.pool.queue-capacity",
+      "type": "java.lang.Integer",
+      "sourceType": "com.ibs.spring.threadpool.ThreadPoolProperties"
+    },
+    {
+      "name": "ibs.parent.thread.pool.thread-name-prefix",
+      "type": "java.lang.String",
+      "sourceType": "com.ibs.spring.threadpool.ThreadPoolProperties"
+    },
+    {
+      "name": "ibs.parent.thread.pool.wait-for-tasks-to-complete-on-shutdown",
+      "type": "java.lang.Boolean",
+      "sourceType": "com.ibs.spring.threadpool.ThreadPoolProperties"
+    },
+    {
+      "name": "ibs.parent.token.ignore-validate-url-patterns",
+      "type": "java.lang.String[]",
+      "sourceType": "com.ibs.components.filters.token.TokenConfigurationProperties"
+    }
+  ],
+  "hints": []
+}

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<columns>
+	<column name="id" property="id" dataType="number" length="10" primaryKey="true" />
+			
+	<column name="index_" property="index" dataType="number" length="10" nullable="false" />
+	<column name="project_id" property="projectId" dataType="string" length="36" nullable="false" />
+	
+	<column name="create_user_id" property="createUserId" dataType="string" length="36" nullable="false" />
+	<column name="create_date" property="createDate" dataType="datetime" nullable="false" />
+</columns>

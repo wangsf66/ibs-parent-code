@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapping-configuration>
+	 <table name="DM_TOKEN_INFO" class="com.ibs.login.entity.DmTokenInfo" strict="true">
+		<columns>
+		    <column name="id" property="id" dataType="string"  length="36" />
+			<column name="create_user_id" property="createUserId" dataType="string" length="36" nullable="false" />
+			<column name="create_date" property="createDate" dataType="datetime" nullable="false" />
+			<column name="last_update_user_id" property="lastUpdateUserId" dataType="string" length="36" nullable="false" />
+			<column name="last_update_date" property="lastUpdateDate" dataType="datetime" nullable="false" />
+			<column name="project_id" property="projectId" dataType="string" length="36" nullable="false" />
+			<column name="customer_id" property="customerId" dataType="string" length="36" nullable="false" />
+			
+			<column name="token_id" property="tokenId" description="tokenid" dataType="string" length="36" nullable="false"  />	
+			<column name="account_id" property="accountId" description="账号id"  dataType="string" length="36" nullable="false"  />
+			<column name="first_login_time" property="firstLoginTime" description="第一次登陆时间"  dataType="datetime" nullable="false" />
+		    <column name="last_operate_time" property="lastOperateTime" description="最后一次操作时间" dataType="datetime" nullable="false"  />	
+		</columns>
+		
+		<constraints>
+			<constraint type="PRIMARY_KEY">
+				<column name="id" />
+			</constraint>
+		</constraints>
+	</table>
+</mapping-configuration>  

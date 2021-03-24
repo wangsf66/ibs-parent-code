@@ -1,0 +1,6 @@
+ibs:
+  parent:
+    filter:
+      enable-cors-filter: true
+      enable-log-filter: true
+      enable-token-validate-filter: true

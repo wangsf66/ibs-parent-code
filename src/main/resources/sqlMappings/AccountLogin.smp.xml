@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapping-configuration>
+	<sql namespace="accountLogin">
+	    <!--查询账号是否存在（拿到项目id，token）  -->	
+		<content name="selectAccount" type="select">
+		   SELECT *  FROM SMT_IMP_ACCOUNT A WHERE A.LOGIN_NAME = $loginName$
+		</content>
+		<!--判断当前用户是否允许登录 -->
+		<content name="checkAccountState" type="select" >
+			SELECT 
+			USER_ID = U.ID,
+			USER_PASSWORD = A.LOGIN_PWD,
+			user_name = A.LOGIN_NAME,
+			USER_ACCOUNT_STATE = A.ACCOUNT_STATE, /*1启用,2禁用*/
+			real_name= U.REAL_NAME,
+			department_id = DUL.RIGHT_ID,
+			parent_department_id = DEPT.PARENT_ID,
+			department_name = DEPT.NAME  
+			FROM SMT_IMP_ACCOUNT A
+			LEFT JOIN SMT_IMP_USER U ON A.ID=U.REF_ACCOUNT_ID
+			LEFT JOIN SMT_IMP_DEPT_USER_LINK DUL ON U.ID = DUL.RIGHT_ID
+			LEFT JOIN SMT_IMP_DEPT DEPT ON DUL.LEFT_ID = DEPT.ID
+			WHERE A.LOGIN_NAME = $loginName$
+		</content>
+		<!--查询角色-->
+		<content name="selectRoles" type="select">
+		SELECT lINK.LEFT_ID AS ID
+		FROM SMT_IMP_RES_USER_LINK lINK
+		WHERE lINK.RIGHT_ID=$userId$ AND lINK.LEFT_RESOURCE='role'
+		</content>
+		<!--查询部门 -->
+		<content name="selectDepartments" type="select">
+			SELECT AUDA_RIGHT_ID
+			 FROM 
+			 (
+			 SELECT 
+			   AUDA_RIGHT_ID,
+			    max(AUDA_R_ALLOW) as AUDA_R_ALLOW,         /*可读*/
+				max(AUDA_R_NOT_ALLOW) as AUDA_R_NOT_ALLOW, /*不可读*/
+				ISNULL(max(R_AUDA_WEIGHT),0) as R_AUDA_WEIGHT,    /* 读权限 值*/
+				ISNULL(max(R_NOT_AUDA_WEIGHT),0) as R_NOT_AUDA_WEIGHT /* 不读权限 值*/
+			 FROM (
+			 select 
+			    AUDA_RIGHT_ID,
+			   AUDA_R_ALLOW,
+			   AUDA_R_NOT_ALLOW,
+			   AUDA_WEIGHT,
+			   case AUDA_R_ALLOW when 1 then AUDA_WEIGHT  end as R_AUDA_WEIGHT,
+			case AUDA_R_NOT_ALLOW when 2 then AUDA_WEIGHT  end as R_NOT_AUDA_WEIGHT
+			 from SYS_AUTH_DATA F
+			 where AUDA_LEFT_ID IN(
+			             SELECT lINK.LEFT_ID AS ID
+			             FROM SMT_IMP_RES_USER_LINK lINK
+			             WHERE lINK.RIGHT_ID=$userId$ AND lINK.LEFT_RESOURCE='role'
+						 UNION ALL
+						 SELECT $userId$ AS ID
+			     )
+			 ) T 
+			 GROUP BY AUDA_RIGHT_ID
+			 ) TT WHERE TT.AUDA_R_ALLOW =1 AND R_AUDA_WEIGHT>R_NOT_AUDA_WEIGHT
+		</content>
+	</sql>
+</mapping-configuration>
